@@ -5,25 +5,22 @@ import { Grid } from "src/components/Grid";
 import { Logo } from "src/components/Logo";
 import { Headline } from "src/components/Headline";
 import { Header } from "src/components/Header";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const foo = 1;
+  const [count, setCount] = useState(1);
 
-  const handleClick = useCallback((e) => {
-    e.preventDefault();
-    console.log(e.target.href);
-    alert(foo);
-  }, []);
+  const handleClick = (e) => {
+    setCount((count) => count + 1);
+    setCount((count) => count + 1);
+  };
 
   useEffect(() => {
-    console.log("mount");
     document.body.style.backgroundColor = "skyblue";
 
     return () => {
-      console.log("unmount");
       document.body.style.backgroundColor = "";
     };
   }, []);
@@ -38,10 +35,9 @@ export default function Home() {
           <code className={styles.code}>pages/index page</code>
         </Headline>
 
+        <h3>{count}</h3>
+        <button onClick={handleClick}>Button</button>
         <Header />
-        <a href="/about" onClick={handleClick}>
-          Button
-        </a>
         <Logo />
 
         <Grid />
