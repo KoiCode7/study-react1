@@ -5,7 +5,7 @@ import { Grid } from "src/components/Grid";
 import { Logo } from "src/components/Logo";
 import { Headline } from "src/components/Headline";
 import { Header } from "src/components/Header";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +16,16 @@ export default function Home() {
     e.preventDefault();
     console.log(e.target.href);
     alert(foo);
+  }, []);
+
+  useEffect(() => {
+    console.log("mount");
+    document.body.style.backgroundColor = "skyblue";
+
+    return () => {
+      console.log("unmount");
+      document.body.style.backgroundColor = "";
+    };
   }, []);
 
   return (
