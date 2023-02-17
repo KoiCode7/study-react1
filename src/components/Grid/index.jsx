@@ -1,5 +1,5 @@
 import { Inter } from "@next/font/google";
-import styles from "./Grid.module.css";
+import styles from "src/components/Grid/Grid.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
