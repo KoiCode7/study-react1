@@ -4,10 +4,10 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Grid } from "../components/Grid.js";
-import { Logo } from "../components/Logo.js";
+import { Grid } from "../components/Grid.jsx";
+import { Logo } from "../components/Logo.jsx";
 import { Headline } from "../components/Headline";
-import { Header } from "@/components/Header.js";
+import { Header } from "../components/Header.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
