@@ -5,7 +5,7 @@ import { Grid } from "src/components/Grid";
 import { Logo } from "src/components/Logo";
 import { Headline } from "src/components/Headline";
 import { Header } from "src/components/Header";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +13,9 @@ export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
+
+  const textRef = useRef();
 
   const handleClick = useCallback(() => {
     if (count < 10) {
@@ -35,6 +38,24 @@ export default function Home() {
     setIsShow((prevIsShow) => !prevIsShow);
   }, [count]);
 
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some((item) => item === text)) {
+        alert("The word has already existed.");
+        return prevArray;
+      }
+
+      if (text.trim() === "") {
+        return prevArray;
+      }
+
+      return [...prevArray, text];
+    });
+
+    setText("");
+    textRef.current.focus();
+  }, [text]);
+
   useEffect(() => {
     document.body.style.backgroundColor = "skyblue";
     return () => {
@@ -55,7 +76,13 @@ export default function Home() {
         {isShow ? <h3>{count}</h3> : null}
         <button onClick={handleClick}>Button</button>
         <button onClick={handleDisplay}>{isShow ? "Hide" : "Show"}</button>
-        <input type="text" value={text} onChange={handleChange} />
+        <input ref={textRef} type="text" value={text} onChange={handleChange} />
+        <button onClick={handleAdd}>Add</button>
+        <ul>
+          {array.map((item) => {
+            return <li key={item}>{item}</li>;
+          })}
+        </ul>
         <Header />
         <Logo />
 
