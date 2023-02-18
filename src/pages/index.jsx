@@ -11,15 +11,29 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [count, setCount] = useState(1);
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
 
-  const handleClick = useCallback(
-    () => {
-      if (count < 10) {
-        setCount((count) => count + 1);
-      }
-    },
-    [count]
-  );
+  const handleClick = useCallback(() => {
+    if (count < 10) {
+      setCount((count) => count + 1);
+    }
+  }, [count]);
+
+  const handleChange = useCallback((e) => {
+    if (e.target.value.length > 5) {
+      alert("Please write within 5 characters");
+      return;
+    }
+    setText(e.target.value.trim());
+  }, []);
+
+  const handleDisplay = useCallback(() => {
+    if (count > 3 && count < 6) {
+      return;
+    }
+    setIsShow((isShow) => !isShow);
+  }, [count]);
 
   useEffect(() => {
     document.body.style.backgroundColor = "skyblue";
@@ -38,8 +52,10 @@ export default function Home() {
           <code className={styles.code}>pages/index page</code>
         </Headline>
 
-        <h3>{count}</h3>
+        {isShow ? <h3>{count}</h3> : null}
         <button onClick={handleClick}>Button</button>
+        <button onClick={handleDisplay}>{isShow ? "Hide" : "Show"}</button>
+        <input type="text" value={text} onChange={handleChange} />
         <Header />
         <Logo />
 
