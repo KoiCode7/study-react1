@@ -29,10 +29,10 @@ export default function Home() {
   }, []);
 
   const handleDisplay = useCallback(() => {
-    if (count > 3 && count < 6) {
+    if (prevCount > 3 && prevCount < 6) {
       return;
     }
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   }, [count]);
 
   useEffect(() => {
