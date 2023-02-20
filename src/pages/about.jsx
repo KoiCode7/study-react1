@@ -27,11 +27,14 @@ export default function About() {
           <code className={styles.code}>pages/index page</code>
         </Headline>
 
-
+        <div className={styles.container}>
+          <div className={styles.counter}>
                 {isShow ? <h3>{count}</h3> : null}
         <button onClick={handleClick}>Button</button>
         <button onClick={handleDisplay}>{isShow ? "Hide" : "Show"}</button>
+          </div>
 
+          <div className={styles.add}>
         <input ref={textRef} type="text" value={text} onChange={handleChange} />
         <button onClick={handleAdd}>Add</button>
         <ul>
@@ -39,6 +42,8 @@ export default function About() {
             return <li key={item}>{item}</li>;
           })}
         </ul>
+          </div>
+        </div>
 
         <Header />
 
