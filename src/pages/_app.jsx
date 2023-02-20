@@ -1,9 +1,9 @@
-import "src/styles/globals.css";
 import Head from "next/head";
+import { useCallback, useState } from "react";
+import { useBgColor } from "src/hooks/useBgColor";
 import { useCounter } from "src/hooks/useCounter";
 import { useInputArray } from "src/hooks/useInputArray";
-import { useBg } from "src/hooks/useBg";
-import { useCallback, useState } from "react";
+import "src/styles/globals.css";
 
 const ITEMS = [
   {
@@ -34,7 +34,7 @@ const ITEMS = [
 export default function App({ Component, pageProps }) {
   const counter = useCounter();
   const inputArray = useInputArray();
-  useBg();
+  useBgColor();
 
   const [items, setItems] = useState(ITEMS);
   const handleDelete = useCallback(() => {
