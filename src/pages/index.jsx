@@ -5,16 +5,21 @@ import { Grid } from "src/components/Grid";
 import { Logo } from "src/components/Logo";
 import { Headline } from "src/components/Headline";
 import { Header } from "src/components/Header";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-import { useBg } from "src/hooks/useBg";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, textRef, handleChange, handleAdd } = useInputArray();
-  useBg();
+export default function Home(props) {
+  const {
+    count,
+    isShow,
+    handleClick,
+    handleDisplay,
+    text,
+    array,
+    textRef,
+    handleChange,
+    handleAdd,
+  } = props;
 
   return (
     <>

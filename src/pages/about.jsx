@@ -5,18 +5,20 @@ import { Grid } from "src/components/Grid";
 import { Logo } from "src/components/Logo";
 import { Headline } from "src/components/Headline";
 import { Header } from "src/components/Header";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-import { useBg } from "src/hooks/useBg";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About() {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, textRef, handleChange, handleAdd } = useInputArray();
-  useBg();
-
-
+export default function About({
+  count,
+  isShow,
+  handleClick,
+  handleDisplay,
+  text,
+  array,
+  textRef,
+  handleChange,
+  handleAdd,
+}) {
   return (
     <>
       <Head>
@@ -29,19 +31,19 @@ export default function About() {
 
         <div className={styles.container}>
           <div className={styles.counter}>
-                {isShow ? <h3>{count}</h3> : null}
-        <button onClick={handleClick}>Button</button>
-        <button onClick={handleDisplay}>{isShow ? "Hide" : "Show"}</button>
+            {isShow ? <h3>{count}</h3> : null}
+            <button onClick={handleClick}>Button</button>
+            <button onClick={handleDisplay}>{isShow ? "Hide" : "Show"}</button>
           </div>
 
           <div className={styles.add}>
-        <input ref={textRef} type="text" value={text} onChange={handleChange} />
-        <button onClick={handleAdd}>Add</button>
-        <ul>
-          {array.map((item) => {
-            return <li key={item}>{item}</li>;
-          })}
-        </ul>
+            <input ref={textRef} type="text" value={text} onChange={handleChange} />
+            <button onClick={handleAdd}>Add</button>
+            <ul>
+              {array.map((item) => {
+                return <li key={item}>{item}</li>;
+              })}
+            </ul>
           </div>
         </div>
 
