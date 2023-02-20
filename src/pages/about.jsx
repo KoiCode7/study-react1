@@ -9,7 +9,7 @@ import { Header } from "src/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function About({
-  count,
+  doubleCount,
   isShow,
   handleClick,
   handleDisplay,
@@ -33,7 +33,7 @@ export default function About({
 
         <div className={styles.container}>
           <div className={styles.counter}>
-            {isShow ? <h3>{count}</h3> : null}
+            {isShow ? <h3>{doubleCount}</h3> : null}
             <button onClick={handleClick}>Button</button>
             <button onClick={handleDisplay}>{isShow ? "Hide" : "Show"}</button>
           </div>
