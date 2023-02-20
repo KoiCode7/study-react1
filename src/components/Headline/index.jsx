@@ -7,9 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 export function Headline(props) {
   return (
     <div className={styles.description}>
+      <button onClick={props.handleDelete}>Delete</button>
       <p>
         {props.title}Get started by editing&nbsp;
         {props.children}
+        Number of items: {props.items.length}
       </p>
       <div>
         <a

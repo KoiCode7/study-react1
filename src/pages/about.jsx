@@ -18,6 +18,8 @@ export default function About({
   textRef,
   handleChange,
   handleAdd,
+  items,
+  handleDelete,
 }) {
   return (
     <>
@@ -25,8 +27,8 @@ export default function About({
         <title>About page</title>
       </Head>
       <main className={styles.main}>
-        <Headline title="about ">
-          <code className={styles.code}>pages/index page</code>
+        <Headline title="about " items={items} handleDelete={handleDelete}>
+          <code className={styles.code}>pages/index page, </code>
         </Headline>
 
         <div className={styles.container}>
@@ -51,7 +53,7 @@ export default function About({
 
         <Logo />
 
-        <Grid />
+        <Grid items={items} handleDelete={handleDelete} />
       </main>
     </>
   );

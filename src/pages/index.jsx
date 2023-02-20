@@ -19,6 +19,8 @@ export default function Home(props) {
     textRef,
     handleChange,
     handleAdd,
+    items,
+    handleDelete,
   } = props;
 
   return (
@@ -27,8 +29,8 @@ export default function Home(props) {
         <title>Index page</title>
       </Head>
       <main className={styles.main}>
-        <Headline title="index ">
-          <code className={styles.code}>pages/index page</code>
+        <Headline title="index " items={items} handleDelete={handleDelete}>
+          <code className={styles.code}>pages/index page, </code>
         </Headline>
 
         {isShow ? <h3>{count}</h3> : null}
@@ -45,7 +47,7 @@ export default function Home(props) {
 
         <Header />
         <Logo />
-        <Grid />
+        <Grid items={items} handleDelete={handleDelete} />
       </main>
     </>
   );
