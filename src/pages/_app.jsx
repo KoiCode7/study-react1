@@ -31,7 +31,7 @@ const ITEMS = [
   },
 ];
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   const counter = useCounter();
   const inputArray = useInputArray();
   useBgColor();
@@ -58,4 +58,6 @@ export default function App({ Component, pageProps }) {
       />
     </>
   );
-}
+};
+
+export default App;

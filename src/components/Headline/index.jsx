@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { Inter } from "@next/font/google";
+import Image from "next/image";
 import styles from "src/components/Headline/Headline.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export function Headline(props) {
+export const Headline = (props) => {
   return (
     <div className={styles.description}>
       <button onClick={props.handleDelete}>Delete</button>
@@ -32,4 +32,4 @@ export function Headline(props) {
       </div>
     </div>
   );
-}
+};

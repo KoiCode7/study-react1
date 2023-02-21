@@ -3,11 +3,11 @@ import styles from "src/components/Grid/Grid.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export function Grid({ items, handleDelete }) {
+export const Grid = (props) => {
   return (
     <div className={styles.grid}>
-      <button onClick={handleDelete}>Delete</button>
-      {items.map((item) => {
+      <button onClick={props.handleDelete}>Delete</button>
+      {props.items.map((item) => {
         return (
           <a
             key={item.href}
@@ -25,4 +25,4 @@ export function Grid({ items, handleDelete }) {
       })}
     </div>
   );
-}
+};
